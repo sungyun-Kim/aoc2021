@@ -1,3 +1,5 @@
 .gradle
 .idea
 build
+src/old
+src/inputs/2020*.txt
