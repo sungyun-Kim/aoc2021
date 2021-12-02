@@ -2,6 +2,7 @@ fun main() {
 
     data class Command(val c :String ,val i : Int )
 
+    //init code
     fun part1(input: List<Command>): Int {
 
         for (i in input){
@@ -40,9 +41,7 @@ fun main() {
     val inputList = mutableListOf<Command>()
 
     for (i in input) {
-
         val com = i.split(" ")
-
         inputList.add(Command(com[0],com[1].toInt()))
     }
 
