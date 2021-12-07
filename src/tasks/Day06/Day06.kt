@@ -4,25 +4,33 @@ fun main() {
 
     fun part1(input: List<String>): Int {
 
-        val fishList = input[0].split(",").map { it.toInt() }
-        val tempList = MutableList(9) { 0 }
+        val fishList = input.first().split(",").map { it.toInt() }
+        val tempList = mutableListOf<Int>()
+
+        for(i in fishList){
+            tempList.add(i)
+        }
 
         for (i in 1..80) {
 
-            for (j in 0..8) {
-                if(j == 0){
-
+            for (j in tempList.indices) {
+                if(tempList[j] == 0){
+                    tempList[j] = 6
+                    tempList.add(8)
+                }
+                else{
+                    tempList[j]--
                 }
             }
-
         }
-        return 0
+
+        return tempList.size
     }
 
     fun part2(input: List<String>): BigInteger {
 
         val bigIntegerInit = 0.toBigInteger()
-        val fishList = input[0].split(",").map { it.toInt() }
+        val fishList = input.first().split(",").map { it.toInt() }
         val tempList = MutableList(9) { bigIntegerInit }
 
         for (j in fishList) {
@@ -42,17 +50,10 @@ fun main() {
             tempList.removeFirst()
         }
 
-        var sum: BigInteger = bigIntegerInit
-
-        for (i in tempList) {
-            sum += i
-        }
-
-        return sum
+        return tempList.fold(BigInteger.ZERO) { acc, e -> acc + e }
     }
 
     val input = readInput("Day06")
-
     println(part1(input))
     println(part2(input))
 }
