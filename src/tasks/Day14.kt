@@ -13,7 +13,7 @@ fun main() {
         val countList = MutableList(300) { 0 }
 
         //10회
-        for (i in 0 until 40) {
+        for (i in 0 until 10) {
 
             var tempCount = 0
             var afterSubject = ""
